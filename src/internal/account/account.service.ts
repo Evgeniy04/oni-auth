@@ -15,19 +15,12 @@ export class InternalAccountService {
     private readonly httpService: HttpService,
   ) {}
 
-  async verification(
-    params: VerificationParams,
-  ): Promise<boolean> {
-    const url =
-      `${this.config.get('ACCOUNT_URL')}/api/account/user/verification`;
+  async verification(params: VerificationParams): Promise<boolean> {
+    const url = `${this.config.get('ACCOUNT_URL')}/api/account/user/verification`;
 
-    const res =
-      await this.httpService.axiosRef.get(
-        url,
-        {
-          params,
-        },
-      );
+    const res = await this.httpService.axiosRef.get(url, {
+      params,
+    });
 
     return res.data;
   }
@@ -35,17 +28,13 @@ export class InternalAccountService {
   async GetUsersByFilter(
     params: GetUsersByFiltersParam,
   ): Promise<GetUsersResponse> {
-    const url =
-      `${this.config.get('ACCOUNT_URL')}` +
-      `/api/account/user`;
-
-    const res =
-      await this.httpService.axiosRef.get(
-        url,
-        {
-          params,
-        },
-      );
+    const url = `${this.config.get('ACCOUNT_URL')}` + `/api/account/user`;
+    const res = await this.httpService.axiosRef.get(url, {
+      params,
+      paramsSerializer: {
+        indexes: null,
+      },
+    });
 
     return res.data;
   }

@@ -6,7 +6,7 @@ export type VerificationParams = {
 export type GetUsersByFiltersParam = {
   userIds?: string[];
   phones?: string[];
-  login?: string;
+  logins?: string[];
 };
 
 export type GetUsersResponse = {

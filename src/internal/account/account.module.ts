@@ -14,4 +14,4 @@ import { InternalAccountService } from './account.service.js';
     InternalAccountService,
   ],
 })
-export class AccountModule {}
+export class InternalAccountModule {}
